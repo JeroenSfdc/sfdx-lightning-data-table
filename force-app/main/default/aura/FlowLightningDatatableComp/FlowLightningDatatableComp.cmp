@@ -1,0 +1,77 @@
+<!--
+Author:        Jeroen Burgers
+Company:       Salesforce
+User Story:    https://imcdgroup.atlassian.net/browse/SFDP-904
+Description:   Generic Wrapper component for the <lightning:datatabe> base component
+               Implements lightning:availableForFlowScreens for use in Lightning flows
+History
+               11/11/2018 Created
+               14/11/2018 Added hideIdField - ability to suppress showing the ID field
+                          Added hideReferenceFields - ability to suppress relationship fields
+                          Added selectedRowId - if ONE record is selected by the user it provides the Record ID
+                          Added descriptions for Design file
+               27/11/2018 Added more objects: VisitReport, FollowupReport, MarketinfoBO, MarketinfoMarket
+-->
+<aura:component implements="lightning:availableForFlowScreens"
+                controller="FlowLightningDatatableCompController"
+                access="global"
+                description="lightning:datatable wrapper exposable in Flows">
+
+    <!-- Public attributes -->
+    <aura:attribute name="divStyle"             type="String"               access="public"/> <!-- e.g. height: 300px; -->
+    <aura:attribute name="IN_Account"           type="Account[]"            access="public"/>
+    <aura:attribute name="IN_Contact"           type="Contact[]"            access="public"/>
+    <aura:attribute name="IN_Case"              type="Case[]"               access="public"/>
+    <aura:attribute name="IN_Opportunity"       type="Opportunity[]"        access="public"/>
+
+    <aura:attribute name="OUT_Account"          type="Account[]"            access="public"/>
+    <aura:attribute name="OUT_Contact"          type="Contact[]"            access="public"/>
+    <aura:attribute name="OUT_Case"             type="Case[]"               access="public"/>
+    <aura:attribute name="OUT_Opportunity"      type="Opportunity[]"        access="public"/>
+
+    <!-- these will have to stay -->
+    <aura:attribute name="keyField"             type="String"               access="public"/>
+    <aura:attribute name="showRowNumberColumn"  type="Boolean"              access="public"/>
+    <aura:attribute name="hideCheckboxColumn"   type="Boolean"              access="public"     default="false"/>
+    <aura:attribute name="hideIdField"          type="Boolean"              access="public"     default="false"/>
+    <aura:attribute name="hideReferenceFields"  type="Boolean"              access="public"     default="false"/>
+    <aura:attribute name="maxRowSelection"      type="Integer"              access="public"     default="200"  />
+    <aura:attribute name="hasSelectedRows"      type="Boolean"              access="public"     default="false"/>
+    <aura:attribute name="selectedRowId"        type="String"               access="public"/>
+    <aura:attribute name="enableSearch"         type="Boolean"              access="public"     default="false"/>
+    <aura:attribute name="fieldList"            type="String[]"             access="public"/>
+
+    <!-- Private attributes -->
+    <aura:attribute name="sObjects"             type="List"                 access="private"    default="['Account','Contact','Case','Opportunity']"/>
+    <aura:attribute name="IN_sObject"           type="String"               access="private"/>
+    <aura:attribute name="OUT_sObject"          type="String"               access="private"/>
+    <aura:attribute name="columns"              type="List"                 access="private"/>
+    <aura:attribute name="data"                 type="List"                 access="private"/>
+    <aura:attribute name="backingData"          type="List"                 access="private"/>
+    <aura:attribute name="filter"               type="String"               access="private"/>
+    <aura:attribute name="selectedRows"         type="List"                 access="private"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <aura:if isTrue="{!v.enableSearch}">
+        <lightning:input type="text"
+                         onchange="{!c.filterData}"
+                         value="{!v.filter}"
+                         placeholder="Full-text search..."
+                         label=""
+        />
+    </aura:if>
+
+    <div style="{!v.divStyle}" aura:id="datatable-container">
+        <lightning:datatable aura:id="datatable" columns="{!v.columns}"
+                             data="{!v.data}"
+                             keyField="{!v.keyField}"
+                             showRowNumberColumn="{!v.showRowNumberColumn}"
+                             selectedRows="{!v.selectedRows}"
+                             hideCheckboxColumn="{!v.hideCheckboxColumn}"
+                             onrowselection="{!c.updateSelectedRows}"
+                             maxRowSelection="{!v.maxRowSelection}"
+        />
+    </div>
+
+</aura:component>

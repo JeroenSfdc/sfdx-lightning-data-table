@@ -1,0 +1,15 @@
+{
+  "orgName": "sfdx-lightning-data-table",
+  "country": "US",
+  "username": "jburgers@sfdx-lightning-data-table.com",
+  "adminEmail": "jburgers@salesforce.com",
+  "edition": "Developer",
+  "features": [
+    "API",
+    "AuthorApex"
+  ],
+  "orgPreferences": {
+    "enabled": [],
+    "disabled": []
+  }
+}

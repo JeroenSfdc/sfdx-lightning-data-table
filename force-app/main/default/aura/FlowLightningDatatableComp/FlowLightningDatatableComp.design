@@ -1,0 +1,28 @@
+<design:component>
+
+    <!-- all supported input sobjects -->
+    <design:attribute name="IN_Account" label="IN_Account" description="Input. Account object."/>
+    <design:attribute name="IN_Contact" label="IN_Contact" description="Input. Contact object."/>
+    <design:attribute name="IN_Case" label="IN_Case" description="Input. Case object."/>
+    <design:attribute name="IN_Opportunity" label="IN_Opportunity" description="Input. Opportunity object."/>
+
+    <!-- all supported input sobjects -->
+    <design:attribute name="OUT_Account" label="OUT_Account"/>
+    <design:attribute name="OUT_Contact" label="OUT_Contact"/>
+    <design:attribute name="OUT_Case" label="OUT_Case"/>
+    <design:attribute name="OUT_Opportunity" label="OUT_Opportunity"/>
+
+    <!-- all supported modifier attributes -->
+    <design:attribute name="divStyle" label="divStyle" description="Input. Allows to provide a style attribute for the wrapper element ex. height: 300px;."/>
+    <design:attribute name="keyField" label="keyField" description="Input. lightning:datatable keyField attribute."/>
+    <design:attribute name="showRowNumberColumn" label="showRowNumberColumn" description="Input. lightning:datatable showRowNumberColumn attribute."/>
+    <design:attribute name="hideCheckboxColumn" label="hideCheckboxColumn" description="Input. lighting:datatable hideCheckboxColumn attribute."/>
+    <design:attribute name="hideIdField" label="hideIdField" description="Input. When provided, hide the ID field on the result lightning:datatable."/>
+    <design:attribute name="maxRowSelection" label="maxRowSelection" description="Input. ligtning:datatable maxRowSelection attribute. 1 displays a radio-button."/>
+    <design:attribute name="hideReferenceFields" label="hideReferenceFields" description="Input. When provided, hides all relationship fields on the result lightning:datatable"/>
+    <design:attribute name="hasSelectedRows" label="hasSelectedRows" description="Output. True if user selected one or more rows."/>
+    <design:attribute name="selectedRowId" label="selectedRowId" description="Output. Record ID if a single record got selected."/>
+    <design:attribute name="enableSearch" label="enableSearch" description="Input. Enables Regex search (default=disabled)."/>
+    <design:attribute name="fieldList" label="fieldList" description="Input. Optional. List of fields to display."/>
+
+</design:component>
