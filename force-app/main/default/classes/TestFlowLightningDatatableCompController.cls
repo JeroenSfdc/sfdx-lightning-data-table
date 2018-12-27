@@ -12,7 +12,7 @@ private class TestFlowLightningDatatableCompController {
     static List<String> testLstFields = new List<String>();
 
     @testSetup static void setup() {
-        insert new Account(Name='Test Account');
+        insert new Account(Name='Test Account', Phone='1234567890');
         insert New Contact(FirstName='Test', LastName='Case', AccountId = [SELECT Id FROM Account LIMIT 1].Id);
     }
 
@@ -25,7 +25,6 @@ private class TestFlowLightningDatatableCompController {
     @IsTest
     public static void testColumnTypes() {
         String res = FlowLightningDatatableCompController.getSObjectColumns([SELECT Name, Phone FROM Account LIMIT 1], testLstFields, true, true);
-        System.debug(res);
         System.assertEquals( true , res.containsIgnoreCase('"type":"phone"')
                 && res.containsIgnoreCase('"type":"text"'), 'Not the expected column-types returned');
     }
