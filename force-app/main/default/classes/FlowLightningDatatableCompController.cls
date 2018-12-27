@@ -1,17 +1,12 @@
-/*------------------------------------------------------------
-Author:        Jeroen Burgers
-Company:       Salesforce
-Description:   Backend for the FlowLightningDatatableComp Aura bundle
-Inputs:        genericSObject = list of records
-			   hideIdField = If true, doesn't return the ID field in the returned column object
-			   hideReferenceFields = If true, doesn't return any relationship fields in the returned column object
-			   lstField = List of fields to be returned in the column object (respecting the order of the list)
-Output:        List<LightningDataColumn> object as input for the <lightning:datatable> component
-History
-	11/11/2018     Created class
-	14/11/2018     Added support for hideIdField, hideReferenceFields
-	01/12/2018     Added support for fields
-------------------------------------------------------------*/
+/*
+
+Copyright (c) 2018, salesforce.com, inc.
+All rights reserved.
+
+Licensed under the BSD 3-Clause license.
+For full license text, see LICENSE.txt file in the repo root  or https://opensource.org/licenses/BSD-3-Clause
+
+*/
 public with sharing class FlowLightningDatatableCompController {
 
     private static Map<Schema.DisplayType, String> typeMap = new Map<Schema.DisplayType, String>();

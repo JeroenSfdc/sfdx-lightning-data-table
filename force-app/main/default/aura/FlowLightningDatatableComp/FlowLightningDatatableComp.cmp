@@ -1,16 +1,11 @@
 <!--
-Author:        Jeroen Burgers
-Company:       Salesforce
-User Story:    https://imcdgroup.atlassian.net/browse/SFDP-904
-Description:   Generic Wrapper component for the <lightning:datatabe> base component
-               Implements lightning:availableForFlowScreens for use in Lightning flows
-History
-               11/11/2018 Created
-               14/11/2018 Added hideIdField - ability to suppress showing the ID field
-                          Added hideReferenceFields - ability to suppress relationship fields
-                          Added selectedRowId - if ONE record is selected by the user it provides the Record ID
-                          Added descriptions for Design file
-               27/11/2018 Added more objects: VisitReport, FollowupReport, MarketinfoBO, MarketinfoMarket
+
+ Copyright (c) 2018, salesforce.com, inc.
+ All rights reserved.
+
+ Licensed under the BSD 3-Clause license.
+ For full license text, see LICENSE.txt file in the repo root  or https://opensource.org/licenses/BSD-3-Clause
+
 -->
 <aura:component implements="lightning:availableForFlowScreens"
                 controller="FlowLightningDatatableCompController"
