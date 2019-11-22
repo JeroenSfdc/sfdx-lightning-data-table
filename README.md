@@ -4,8 +4,6 @@ Ever needed to show a Lightning Data Table as part of a Lightning Flow?
 
 Just grab these sources to get you going.
 
-More details in upcoming blog post on https://cloudmatters.blog
-
 ![](screen-demo.gif)
 
 Want to deploy to a scratch org?
